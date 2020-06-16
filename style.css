@@ -26,3 +26,8 @@ img[alt='loading ...'] {
 .fake-auth-form {
     margin-top: 15px;
 }
+
+.button-counter-container {
+    text-align: center;
+    margin-top: 15px;
+}
