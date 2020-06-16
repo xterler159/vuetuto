@@ -1,0 +1,28 @@
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.btns-container {
+    text-align: center;
+}
+
+img[alt='loading ...'] {
+    display: block;
+    margin: 0 auto;
+}
+
+.auth-error {
+    color: #fff;
+    padding: 0 10px 0 10px;
+    margin: 10px 0 0 0;
+    border-radius: 10px;
+}
+
+.fake-auth-form {
+    margin-top: 15px;
+}

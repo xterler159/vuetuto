@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning VueJs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./assets/vue-logo.svg">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="./js/script.js" defer></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1 class="display-5" align="center">{{message}}</h1>
+
+        <div class="container-fluid">
+            <div class="btns-container mx-auto">
+                <button v-on:click="showAlert" class="btn btn-primary">Alert</button>
+                <button v-on:click="fetchUsers" class="btn btn-primary">Get users</button>
+                <button v-on:click="navToGoogle" class="btn btn-primary">Go to Google !</button>
+            </div>
+
+            <div v-if="users" class="users-container">
+                <h1 class="display-5">Users:</h1>
+                <ul>
+                    <li v-for="(user, index) in users" :key="user.test">
+                        User n° {{index}}: {{user.name}}
+                    </li>
+                </ul>
+            </div>
+
+            <img src="./assets/loading.gif" alt="loading ..." v-if="loading">
+
+            <form class="fake-auth-form">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input v-model="userEmail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input v-model="userPassword" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" v-model="userCheckMeOut">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary" v-on:click="authUser">Submit</button>
+                
+                <p class="bg-danger lead auth-error" v-if="authErrors.error">{{authErrors.msg}}</p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
