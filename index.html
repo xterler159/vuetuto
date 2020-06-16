@@ -57,6 +57,8 @@
 
             <button-counter></button-counter>
             <hello-component></hello-component>
+            
+            <blog-post v-for="(post, index) in blogPosts" v-bind:name="post.name" v-bind:title="post.title" v-bind:key="index" />
         </div>
     </div>
 </body>

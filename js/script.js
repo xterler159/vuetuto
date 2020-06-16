@@ -29,6 +29,20 @@ Vue.component('hello-component', {
     `
 });
 
+Vue.component('blog-post', {
+    data: function() {
+        return {}
+    },
+    props: ['title', 'name'],
+    template: `
+        <div class="blog-post-container">
+            <h3 class="display-5">
+                Name: {{name}}, title: {{title}}
+            </h3>
+        </div>
+    `
+});
+
 const appVue = new Vue({
     el: app,
     data: {
@@ -44,7 +58,12 @@ const appVue = new Vue({
         authErrors: {
             error: false,
             msg: ""
-        }
+        },
+        blogPosts: [
+            {name: "Jojo", title: "Jonathan Joestar"},
+            {name: "Naruto", title: "The demon of the village"},
+            {name: "Edward Elric", title: "State alchemist"},
+        ]
     },
     methods: {
         showAlert: function () {
